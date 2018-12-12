@@ -16,6 +16,11 @@ Then generate your new project:
 yo hiroki
 ```
 
+Also you can generate a new model in proyect:
+```bash
+
+yo hiroki:model
+```
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
