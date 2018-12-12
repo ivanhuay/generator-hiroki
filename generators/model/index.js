@@ -46,8 +46,6 @@ class ModelGenerator extends Generator {
     }
     path() {
         this.destinationRoot(this.props.modelFolder);
-        console.log(this.destinationRoot());
-        console.log('path:', this.destinationPath());
     }
     writing() {
         const files = [
@@ -59,7 +57,6 @@ class ModelGenerator extends Generator {
                     files.push(file.replace('.js', ''));
                 }
             });
-        console.log('destination: ', this.destinationPath('index.js'));
         this.fs.copyTpl(this.templatePath('lib/models/index.js'), this.destinationPath('index.js'), {
             files,
             camelize: this.camelize
