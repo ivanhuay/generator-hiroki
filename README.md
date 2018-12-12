@@ -21,12 +21,41 @@ Also you can generate a new model in proyect:
 
 yo hiroki:model
 ```
+## About the structure
+
+* The logic of your application should be contained in these folders:
+```
+lib/
+├── decorators
+│   ├── index.js
+│   └── user.js
+├── logger.js
+├── models
+│   ├── index.js
+│   └── user.js
+└── routes
+    ├── auth.js
+    ├── extract-jwt.js
+    ├── home.js
+    ├── index.js
+    └── users.js
+```
+* configuration:
+```
+config/
+└── public.js
+.env
+```
+
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
  * Yeoman is a person with feelings and opinions, but is very easy to work with.
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
+## Hiroki Documentation
+[Documentation here](https://ivanhuay.github.io/hiroki/)
 
 ## License
 
