@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "percho",
+      "authorEmail": "ivanhuay@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}
