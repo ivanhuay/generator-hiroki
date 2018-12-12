@@ -25,8 +25,8 @@ describe('generator-hiroki:model with previous files', function() {
     beforeAll(function() {
         return helpers.run(path.join(__dirname, '../generators/model'))
             .inTmpDir(function(dir) {
-                console.log(path.join(__dirname, '../__tests__/mocks/users.js'));
-                fs.copySync(path.join(__dirname, '../__tests__/mocks/users.js'), dir);
+                const pathEnd = path.join(__dirname, './mocks/users.js');
+                fs.copySync(pathEnd, path.join(dir, '/users.js'));
             })
             .withPrompts({
                 modelName: 'examples',
@@ -41,5 +41,6 @@ describe('generator-hiroki:model with previous files', function() {
     it('creates model files', function() {
         assert.file('index.js');
         assert.file('examples.js');
+        assert.file('users.js');
     });
 });

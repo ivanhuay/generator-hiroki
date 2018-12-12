@@ -51,10 +51,8 @@ class ModelGenerator extends Generator {
         const files = [
             this.props.modelName
         ];
-        console.log(this.destinationPath());
         fs.readdirSync(this.destinationPath())
             .forEach((file) => {
-                console.log(file);
                 if(file !== 'index.js' && file.indexOf('.js') !== -1) {
                     files.push(file.replace('.js', ''));
                 }

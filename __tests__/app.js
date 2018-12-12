@@ -5,7 +5,7 @@ const helpers = require('yeoman-test');
 describe('generator-hiroki:app', function() {
     beforeAll(function() {
         return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
+            .withOptions({
                 skipInstall: true
             })
             .withPrompts({
