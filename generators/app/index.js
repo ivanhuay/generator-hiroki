@@ -90,8 +90,8 @@ class HirokiGenerator extends Generator {
 
             }
         };
-        if(this.props.json) {
-            jsonBase.dependencies.bcrypt = '^0.0.3';
+        if(this.props.jwt) {
+            jsonBase.dependencies['bcrypt-nodejs'] = '^0.0.3';
             jsonBase.dependencies.jsonwebtoken = '^8.4.0';
         }
 
