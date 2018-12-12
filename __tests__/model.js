@@ -22,8 +22,11 @@ describe('generator-hiroki:model', function() {
 });
 describe('generator-hiroki:model with previous files', function() {
     beforeAll(function() {
-        console.log(__dirname, './generators/users.js');
         return helpers.run(path.join(__dirname, '../generators/model'))
+            .inTmpDir(function(dir) {
+                console.log(path.join(__dirname, '../generators/users.js'));
+                fs.copySync(path.join(__dirname, '../generators/users.js'), dir);
+            })
             .withPrompts({
                 modelName: 'examples',
                 timestamps:true
