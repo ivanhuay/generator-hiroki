@@ -26,7 +26,7 @@ describe('generator-hiroki:model with previous files', function() {
         return helpers.run(path.join(__dirname, '../generators/model'))
             .inTmpDir(function(dir) {
                 const pathEnd = path.join(__dirname, './mocks/users.js');
-                fs.copySync(pathEnd, path.join(dir, '/users.js'));
+                fs.copySync(pathEnd, path.join(dir, 'lib/models/users.js'));
             })
             .withPrompts({
                 modelName: 'examples',
