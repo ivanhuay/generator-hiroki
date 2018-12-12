@@ -23,6 +23,7 @@ describe('generator-hiroki:app', function() {
         assert.file([
             'package.json',
             '.eslintrc',
+            'app.js',
             'lib/models/user.js',
             'lib/models/index.js',
             'lib/routes/index.js'
@@ -43,6 +44,7 @@ describe('generator-hiroki:app with jwt option', function() {
         assert.file([
             'package.json',
             '.eslintrc',
+            'app.js',
             'lib/models/user.js',
             'lib/models/index.js',
             'lib/routes/index.js',

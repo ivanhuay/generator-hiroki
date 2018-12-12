@@ -79,6 +79,9 @@ class HirokiGenerator extends Generator {
         this.fs.copyTpl(this.templatePath('_env'), this.destinationPath('.env'), {
             jwt: this.props.jwt
         });
+        this.fs.copyTpl(this.templatePath('app.js'), this.destinationPath('app.js'), {
+            jwt: this.props.jwt
+        });
         let jsonBase = {
             name: this.props.name,
             version: this.props.version,

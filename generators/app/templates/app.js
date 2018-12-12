@@ -6,15 +6,12 @@ const logger = require('./lib/logger');
 const expressWinston = require('express-winston');
 const dotenv = require('dotenv');
 dotenv.load();
-
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
 const routes = require('./lib/routes');
-const extractJwt = require('./lib/routes/extract-jwt');
-const publicPath = require('./config/public');
-var app = express();
-
+const app = express();
+<%if(jwt){%>const extractJwt = require('./lib/routes/extract-jwt');<%}%>
+<%if(jwt){%>const publicPath = require('./config/public');<%}%>
 
 app.use(expressWinston.logger({
     winstonInstance: logger,
@@ -32,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://' + process.env.MONGODB_HOST + ':' + process.env.MONGODB_PORT + '/' + process.env.MONGODB_DB, {useMongoClient:true})
+mongoose.connect('mongodb://' + process.env.MONGODB_HOST + ':' + process.env.MONGODB_PORT + '/' + process.env.MONGODB_DB,  {useNewUrlParser: true})
     .then(() => {
         logger.info('success mongoose connection.');
     })
@@ -40,8 +37,7 @@ mongoose.connect('mongodb://' + process.env.MONGODB_HOST + ':' + process.env.MON
         logger.error('Error mongoose connection: ', error);
     });
 
-app.use(publicPath.pathRegex, extractJwt);
-
+<%if(jwt){%>app.use(publicPath.pathRegex, extractJwt);<%}%>
 const buildHiroki = require('./build-hiroki');
 const hirokiInstance = buildHiroki();
 app.use('/api', hirokiInstance);
@@ -50,13 +46,12 @@ Object.keys(routes).forEach((key) => {
     app.use(routes[key]);
 });
 
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
-
+// eslint-disable-next-line no-unused-vars
 app.use(function(err, req, res, next) {
     logger.error('handleError: ', err);
     if (res.headersSent) {
