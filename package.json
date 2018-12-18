@@ -1,6 +1,6 @@
 {
   "name": "generator-hiroki",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generate Rest api using hiroki",
   "homepage": "",
   "author": {
@@ -45,6 +45,11 @@
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivanhuay/generator-hiroki",
+    "web": "https://github.com/ivanhuay/generator-hiroki"
   },
   "lint-staged": {
     "*.js": [

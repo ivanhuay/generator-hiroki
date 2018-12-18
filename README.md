@@ -15,12 +15,17 @@ Then generate your new project:
 ```bash
 yo hiroki
 ```
-
+### Generate model
 Also you can generate a new model in proyect:
 ```bash
 
 yo hiroki:model
 ```
+### Generate decorator
+```
+yo hiroki:decorator
+```
+
 ## About the structure
 
 * The logic of your application should be contained in these folders:
