@@ -56,6 +56,11 @@ class HirokiGenerator extends Generator {
                         name: 'jwt',
                         message: 'Enable jwt validation?',
                         default: true
+                    }, {
+                        type: 'confirm',
+                        name: 'docker',
+                        message: 'Want docker structure?',
+                        default: true
                     }
                 ];
                 return this.prompt(prompts);
@@ -82,6 +87,9 @@ class HirokiGenerator extends Generator {
         this.fs.copyTpl(this.templatePath('app.js'), this.destinationPath('app.js'), {
             jwt: this.props.jwt
         });
+        this.fs.copyTpl(this.templatePath('basic-node-hiroki/lib/models/user.js'), this.destinationPath('lib/models/user.js'), {
+            jwt: this.props.jwt
+        });
         let jsonBase = {
             name: this.props.name,
             version: this.props.version,
@@ -99,6 +107,12 @@ class HirokiGenerator extends Generator {
 
         if (this.props.jwt) {
             this.fs.copy(this.templatePath('login-hiroki/'), this.destinationPath('./'));
+        }
+        if (this.props.docker) {
+            this.fs.copy(this.templatePath('docker-hiroki/Dockerfile'), this.destinationPath('Dockerfile'));
+            this.fs.copyTpl(this.templatePath('docker-hiroki/docker-compose.yml'), this.destinationPath('docker-compose.yml'), {
+                name: this.props.name
+            });
         }
     }
     install() {

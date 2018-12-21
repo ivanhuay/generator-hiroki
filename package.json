@@ -81,6 +81,5 @@
     "pretest": "eslint .",
     "test": "jest --testPathIgnorePatterns mocks/"
   },
-  "repository": "ivanhuay/generator-hiroki",
   "license": "MIT"
 }
