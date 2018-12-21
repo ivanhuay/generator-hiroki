@@ -1,0 +1,36 @@
+version: '3'
+services:
+  api:
+    build: .
+    container_name: <%-name%>-api
+    restart: always
+    environment:
+      - SERVER_PORT=3000
+      - SERVER_HOST=localhost
+      - LOGGER_INFO_PATH='./info.log'
+      - LOGGER_INFO_LEVEL='info'
+      - LOGGER_FILE_MAX_SIZE=1000000
+      - LOGGER_MAX_FILES=50
+      - LOGGER_ERROR_PATH='./error.log'
+      - LOGGER_ERROR_LEVEL='error'
+      - IS_BEHIND_PROXY=false
+      - MONGODB_HOST=mongo-database
+      - MONGODB_PORT=27017
+      - MONGODB_DB=default
+      - NODE_ENV=development
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    depends_on:
+      - mongo-database
+    networks:
+      - <%-name%>-api
+  mongo-database:
+    image: mongo:latest
+    restart: always
+    container_name: <%-name%>-mongo-database
+    networks:
+      - <%-name%>-api
+networks:
+  <%-name%>-api:
