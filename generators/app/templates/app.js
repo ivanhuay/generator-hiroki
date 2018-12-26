@@ -32,13 +32,14 @@ function initialize() {
     app.use(express.static(path.join(__dirname, 'public')));
 
     <%if(jwt){%>app.use(publicPath.pathRegex, extractJwt);<%}%>
-    const buildHiroki = require('./build-hiroki');
-    const hirokiInstance = buildHiroki();
-    app.use('/api', hirokiInstance);
 
     Object.keys(routes).forEach((key) => {
-        app.use(routes[key]);
+        app.use(`/api/${key}`, routes[key]);
     });
+
+    const buildHiroki = require('./build-hiroki');
+    app.use(buildHiroki());
+
 
     app.use(function(req, res, next) {
         let err = new Error('Not Found');
