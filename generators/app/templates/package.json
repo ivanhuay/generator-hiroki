@@ -3,7 +3,7 @@
     "start": "node ./bin/init.js"
   },
   "dependencies": {
-    "hiroki": "^0.1.1",
+    "hiroki": "^0.1.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
