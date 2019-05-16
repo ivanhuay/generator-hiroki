@@ -63,6 +63,7 @@ class ModelGenerator extends Generator {
         });
         this.fs.copyTpl(this.templatePath('lib/models/model.js'), this.destinationPath(`${this.props.modelName}.js`), {
             modelName: this.props.modelName,
+            camelizedModelName: this.camelize(this.props.modelName),
             timestamps: this.props.timestamps
         });
     }
