@@ -91,7 +91,7 @@ class HirokiGenerator extends Generator {
             jwt: this.props.jwt
         });
         let jsonBase = {
-            name: this.props.name,
+            name: this.props.name.replace(' ', '-'),
             version: this.props.version,
             private: this.props.private,
             dependencies: {

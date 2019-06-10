@@ -3,7 +3,7 @@
     "start": "node ./bin/init.js"
   },
   "dependencies": {
-    "hiroki": "^0.1.2",
+    "hiroki": "^0.2.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
@@ -16,7 +16,7 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "eslint": "^5.10.0",
+    "eslint": "^5.16.0",
     "eslint-formatter-checkstyle-relative-paths": "^1.0.1",
     "eslint-plugin-security": "^1.4.0"
   }
