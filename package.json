@@ -1,6 +1,6 @@
 {
   "name": "generator-hiroki",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Generate Rest api using hiroki",
   "homepage": "",
   "author": {
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "chalk": "^2.1.0",
-    "pluralize": "^7.0.0",
+    "pluralize": "^8.0.0",
     "yeoman-generator": "^3.1.1",
     "yosay": "^2.0.1"
   },
