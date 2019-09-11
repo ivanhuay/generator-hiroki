@@ -1,7 +1,7 @@
 'use strict';
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-<%if(jwt){%>const bcrypt = require('bcrypt-nodejs');<%}%>
+<%if(jwt){%>const bcrypt = require('bcrypt');<%}%>
 
 const userSchema = new Schema({
     username: {
@@ -27,7 +27,7 @@ const userSchema = new Schema({
 
 <%if(jwt){%>
 userSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
 };
 
 userSchema.methods.validPassword = function(password) {
@@ -43,7 +43,7 @@ userSchema.methods.toJSON = function() {
 userSchema.pre('save', function(next) {
     const user = this;
     if (user.isModified('password')) {
-        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(8), null);
+        user.password = user.generateHash(user.password);
     }
     return next();
 });
