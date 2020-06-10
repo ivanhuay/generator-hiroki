@@ -99,7 +99,7 @@ class HirokiGenerator extends Generator {
             }
         };
         if(this.props.jwt) {
-            jsonBase.dependencies.bcrypt = '^3.0.6';
+            jsonBase.dependencies.bcrypt = '^5.0.0';
             jsonBase.dependencies.jsonwebtoken = '^8.4.0';
         }
 
